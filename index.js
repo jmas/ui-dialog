@@ -1,8 +1,8 @@
 var dom = require('jmas/dom');
 var dialogHtml = 
-'<div class="ui-dialog">'+
+'<div data-dialog class="ui-dialog">'+
   '<div class="ui-dialog-navbar">'+
-    '<div class="ui-dialog-title"></div>'+
+    '<div data-title class="ui-dialog-title"></div>'+
     '<div data-navset-first class="ui-dialog-navset-first"></div>'+
     '<div data-navset-second class="ui-dialog-navset-second"></div>'+
   '</div>'+
@@ -28,6 +28,10 @@ var UiDialog = function(options) {
   this.navsetSecondEl = document.createElement('DIV');
 
   this.buildSkeleton();
+  this.updateSize(this.width, this.height);
+  
+  this.titleEl = dom.query(this.el, '[data-title]');
+  this.dialogEl = dom.query(this.el, '[data-dialog]');
 };
 
 UiDialog.prototype.parent = null;
@@ -37,6 +41,8 @@ UiDialog.prototype.el = null;
 UiDialog.prototype.contentEl = null;
 UiDialog.prototype.navsetFirstEl = null;
 UiDialog.prototype.navsetSecondEl = null;
+UiDialog.prototype.dialogEl = null;
+UiDialog.prototype.titleEl = null;
 
 UiDialog.prototype.buildSkeleton = function() {
   dom.replaceHtml(this.el, dialogHtml);
@@ -56,6 +62,13 @@ UiDialog.prototype.close = function() {
   if (this.parent) {
     this.parent.open();
   }
+};
+
+UiDialog.prototype.updateSize = function(width, height) {
+  this.width = parseInt(width);
+  this.height = parseInt(height);
+  this.dialogEl.style.width = this.width + 'px';
+  this.dialogEl.style.height = this.height + 'px';
 };
 
 module.exports = UiDialog;
