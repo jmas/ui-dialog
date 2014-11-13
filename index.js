@@ -45,7 +45,7 @@ UiDialog.prototype.buildSkeleton = function() {
   dom.query(this.el, '[data-content]').appendChild(this.contentEl);
   dom.query(this.el, '[data-navset-first]').appendChild(this.navsetFirstEl);
   dom.query(this.el, '[data-navset-second]').appendChild(this.navsetSecondEl);
-  dom.body().appendChild(el);
+  dom.body().appendChild(this.el);
 };
 
 UiDialog.prototype.open = function() {
