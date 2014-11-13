@@ -16,8 +16,13 @@ var UiDialog = function(options) {
   if (typeof options.width !== 'undefined') {
     this.width = options.width;
   }
+  
   if (typeof options.height !== 'undefined') {
     this.height = options.height;
+  }
+  
+  if (typeof options.title !== 'undefined') {
+    this.title = options.title;
   }
 
   this.el = document.createElement('DIV');
@@ -28,15 +33,18 @@ var UiDialog = function(options) {
   this.navsetSecondEl = document.createElement('DIV');
 
   this.buildSkeleton();
-  this.updateSize(this.width, this.height);
   
   this.titleEl = dom.query(this.el, '[data-title]');
   this.dialogEl = dom.query(this.el, '[data-dialog]');
+  
+  this.setSize(this.width, this.height);
+  this.setTitle(this.title);
 };
 
 UiDialog.prototype.parent = null;
 UiDialog.prototype.width = 500;
 UiDialog.prototype.height = 400;
+UiDialog.prototype.title = '';
 UiDialog.prototype.el = null;
 UiDialog.prototype.contentEl = null;
 UiDialog.prototype.navsetFirstEl = null;
@@ -64,11 +72,16 @@ UiDialog.prototype.close = function() {
   }
 };
 
-UiDialog.prototype.updateSize = function(width, height) {
+UiDialog.prototype.setSize = function(width, height) {
   this.width = parseInt(width);
   this.height = parseInt(height);
   this.dialogEl.style.width = this.width + 'px';
   this.dialogEl.style.height = this.height + 'px';
+};
+
+UiDialog.prototype.setTitle = function(title) {
+  this.title = title;
+  this.titleEl.innerHTML = title;
 };
 
 module.exports = UiDialog;
