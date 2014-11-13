@@ -1,3 +1,7 @@
+.ui-dialog-container.active {
+  display: block;
+}
+
 .ui-dialog {
   position: fixed;
   top: 0;
