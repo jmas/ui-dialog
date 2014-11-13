@@ -42,9 +42,9 @@ UiDialog.prototype.navsetSecondEl = null;
 
 UiDialog.prototype.buildSkeleton = function() {
   dom.replaceHtml(this.el, dialogHtml);
-  dom.query(this.el, '[data-content]').appendChild(contentEl);
-  dom.query(this.el, '[data-navset-first]').appendChild(navsetFirstEl);
-  dom.query(this.el, '[data-navset-second]').appendChild(navsetSecondEl);
+  dom.query(this.el, '[data-content]').appendChild(this.contentEl);
+  dom.query(this.el, '[data-navset-first]').appendChild(this.navsetFirstEl);
+  dom.query(this.el, '[data-navset-second]').appendChild(this.navsetSecondEl);
   dom.body().appendChild(el);
 };
 
