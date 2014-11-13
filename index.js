@@ -1,14 +1,12 @@
 var dom = require('jmas/dom');
 var dialogHtml = 
 '<div class="ui-dialog">'+
-  '<div class="ui-dialog-box">'+
-    '<div class="ui-dialog-navbar">'+
-      '<div class="ui-dialog-title"></div>'+
-      '<div data-navset-first class="ui-dialog-navset-first"></div>'+
-      '<div data-navset-second class="ui-dialog-navset-second"></div>'+
-    '</div>'+
-    '<div data-content></div>'+
-  '</div>'+    
+  '<div class="ui-dialog-navbar">'+
+    '<div class="ui-dialog-title"></div>'+
+    '<div data-navset-first class="ui-dialog-navset-first"></div>'+
+    '<div data-navset-second class="ui-dialog-navset-second"></div>'+
+  '</div>'+
+  '<div data-content></div>'+
 '</div>';
 
 var UiDialog = function(options) {
